@@ -25,6 +25,19 @@ contract SupplyChainTracker {
         string metadata; // IPFS hash or additional info
         bool deleted; // Soft delete
     }
+ }
+
+    // Product structure
+    struct Product {
+        uint256 id;
+        string name;
+        address manufacturer;
+        address currentOwner;
+        uint256 timestamp;
+        ProductStatus status;
+        string metadata; // IPFS hash or additional info
+        bool deleted; // Soft delete
+    }
 
     // Mapping from product ID to Product
     mapping(uint256 => Product) public products;
