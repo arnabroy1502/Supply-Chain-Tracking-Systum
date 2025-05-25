@@ -11,9 +11,7 @@ contract SupplyChainTracker {
         Manufactured,
         InTransit,
         Delivered,
-        Sold
-    }
-
+\
     // Product structure
     struct Product {
         uint256 id;
