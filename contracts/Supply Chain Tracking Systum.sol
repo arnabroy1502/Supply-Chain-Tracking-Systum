@@ -15,7 +15,7 @@ contract SupplyChainTracker {
     // Product structure
     struct Product {
         uint256 id;
-        string name;
+        string name
         address manufacturer;
         address currentOwner;
         uint256 timestamp;
@@ -48,7 +48,6 @@ contract SupplyChainTracker {
 
     // Product counter
     uint256 private productCount = 0;
-
     // Events
     event ProductCreated(uint256 indexed productId, string name, address indexed manufacturer);
     event OwnershipTransferred(uint256 indexed productId, address indexed from, address indexed to);
