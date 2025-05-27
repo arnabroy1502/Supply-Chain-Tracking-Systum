@@ -21,7 +21,7 @@ contract SupplyChainTracker {
         uint256 timestamp;
         ProductStatus status;
         string metadata; // IPFS hash or additional info
-        bool deleted; // Soft delete
+        
     }
  }
 
