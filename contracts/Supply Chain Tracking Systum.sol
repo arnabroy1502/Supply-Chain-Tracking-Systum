@@ -18,7 +18,7 @@ contract SupplyChainTracker {
         string name
         address manufacturer;
         address currentOwner;
-        uint256 timestamp;
+        uint256
         ProductStatus status;
         string metadata; // IPFS hash or additional info
         
