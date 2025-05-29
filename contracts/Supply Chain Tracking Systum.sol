@@ -8,7 +8,7 @@ pragma solidity ^0.8.17;
 contract SupplyChainTracker {
     // Enum for product status
     enum ProductStatus {
-        Manufactured,
+        Manufactured\
         InTransit,
         Delivered,
 
