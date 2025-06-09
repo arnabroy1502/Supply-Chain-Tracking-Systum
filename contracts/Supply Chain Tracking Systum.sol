@@ -4,8 +4,7 @@ pragma solidity ^0.8.17;
 /**
  * @title Supply Chain Tracking Syste
  * @dev Tracks products through the supply chain with ownership transfers and status updates
- */
-contract SupplyChainTracker {
+ */ontract SupplyChainTracker {
     // Enum for product status
     enum ProductStatus {
         Manufactured\
