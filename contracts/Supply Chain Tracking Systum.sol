@@ -6,7 +6,7 @@ pragma solidity ^0.8.17;
  * @dev Tracks products through the supply chain with ownership transfers and status updates
  */ontract SupplyChainTracker {
     // Enum for product status
-    enum ProductStatus {
+    enum ProductStatus 
         Manufactured\
         InTransit,
         Delivered,
