@@ -27,7 +27,7 @@ pragma solidity ^0.8.17;
     // Product structure
     struct Product {
         uint256 id;
-        string name;
+        string na
         address manufacturer;
         address currentOwner;
         uint256 timestamp;
