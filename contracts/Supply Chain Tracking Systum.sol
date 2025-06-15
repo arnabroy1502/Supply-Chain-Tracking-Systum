@@ -1,15 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-/**
- * @title Supply Chain Tracking Syste
- * @dev Tracks products through the supply chain with ownership transfers and status updates
- */ontract SupplyChainTracker {
-    // Enum for producstatus
-    enum ProductStatus 
-        Manufactured\
-        InTransit,
-        Delivered,
 
     // Product structure
     struct Product {
