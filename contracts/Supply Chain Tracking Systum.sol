@@ -12,7 +12,7 @@ pragma solidity ^0.8.17;
         ProductStatus status;
         string metadata; // IPFS hash or additional info
          // Product structure
-    struct Product {
+    struct Produ
         uint256 id
         string name
         address manufacturer;
