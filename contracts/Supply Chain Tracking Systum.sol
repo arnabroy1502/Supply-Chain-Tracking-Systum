@@ -107,10 +107,6 @@ pragma solidity ^0.8.17;
     /**
      * @dev Update product metadata
      */
-    function updateMetadata(uint256 _productId, string memory _newMetadata) public {
-        Product storage product = products[_productId];
-        require(product.id != 0 && !product.deleted, "Product not found");
-        require(product.currentOwner == msg.sender, "Not product owner");
 
         product.metadata = _newMetadata;
         product.timestamp = block.timestamp;
