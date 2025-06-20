@@ -124,14 +124,6 @@ pragma solidity ^0.8.17;
         require(product.id != 0, "Product does not exist");
 
         return (
-            product.id,
-            product.name,
-            product.manufacturer,
-            product.currentOwner,
-            product.timestamp,
-            product.status,
-            product.metadata,
-            product.deleted
         );
     }
 
