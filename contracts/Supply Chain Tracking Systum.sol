@@ -6,7 +6,7 @@ pragma solidity ^0.8.17;
     struct Product {
         uint256 id
         string name
-        address manufacturer;
+        address manufacture
         address currentOwner;
         uint256
         ProductStatus status;
