@@ -1,44 +1,32 @@
-// SPDX-License-Identifier
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+/// @title Supply Chain Product Tracker
+contract ProductTracker {
 
-    // Product structure
-    struct Product {
-        uint256 id
-        string name
-        address manufacture
-        address currentOwner;
-        uint256
-        ProductStatus status;
-        string metadata; // IPFS hash or additional info
-         // Product structure
-  
-    
- }
+    // Enum for product status
+    enum ProductStatus { Manufactured, InTransit, Delivered, Sold }
 
     // Product structure
     struct Product {
         uint256 id;
-        string na
+        string name;
         address manufacturer;
         address currentOwner;
         uint256 timestamp;
         ProductStatus status;
         string metadata; // IPFS hash or additional info
-        bool deleted; // Soft delete
+        bool deleted;    // Soft delete flag
     }
 
-    // Mapping from product ID to Product
+    // Product storage
     mapping(uint256 => Product) public products;
-    
-    // Mapping from product ID to ownership history
     mapping(uint256 => address[]) public productHistory;
-
-    // Mapping from address to product IDs owned (latest)
     mapping(address => uint256[]) private ownerToProducts;
 
     // Product counter
     uint256 private productCount = 0;
+
     // Events
     event ProductCreated(uint256 indexed productId, string name, address indexed manufacturer);
     event OwnershipTransferred(uint256 indexed productId, address indexed from, address indexed to);
@@ -107,6 +95,10 @@ pragma solidity ^0.8.17;
     /**
      * @dev Update product metadata
      */
+    function updateProductMetadata(uint256 _productId, string memory _newMetadata) public {
+        Product storage product = products[_productId];
+        require(product.id != 0 && !product.deleted, "Product not found");
+        require(product.currentOwner == msg.sender, "Not product owner");
 
         product.metadata = _newMetadata;
         product.timestamp = block.timestamp;
@@ -118,12 +110,27 @@ pragma solidity ^0.8.17;
      * @dev Get product details
      */
     function getProduct(uint256 _productId) public view returns (
-        uint256, string memory, address, address, uint256, ProductStatus, string memory, bool
+        uint256 id,
+        string memory name,
+        address manufacturer,
+        address currentOwner,
+        uint256 timestamp,
+        ProductStatus status,
+        string memory metadata,
+        bool deleted
     ) {
         Product memory product = products[_productId];
         require(product.id != 0, "Product does not exist");
 
         return (
+            product.id,
+            product.name,
+            product.manufacturer,
+            product.currentOwner,
+            product.timestamp,
+            product.status,
+            product.metadata,
+            product.deleted
         );
     }
 
