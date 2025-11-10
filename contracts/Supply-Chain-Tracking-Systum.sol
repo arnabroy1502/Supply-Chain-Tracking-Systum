@@ -52,67 +52,8 @@ Add more statuses as required
             exists: true
         });
 
-        // Initial status update
-        itemStatusHistory[id].push(StatusUpdate({
-            status: Status.Created,
-            timestamp: block.timestamp,
-            updatedBy: msg.sender,
-            remarks: "Item created"
-        }));
-
-        emit ItemCreated(id, description, msg.sender, block.timestamp);
-    }
-
-    /**
-     * @dev Update the status of an existing item
-     */
-    function updateItemStatus(uint256 id, Status newStatus, string memory remarks) external onlyAuthorized {
-        require(items[id].exists, "Item does not exist");
-        require(newStatus != items[id].currentStatus, "Status unchanged");
-
-        items[id].currentStatus = newStatus;
-        items[id].timestamp = block.timestamp;
-
-        itemStatusHistory[id].push(StatusUpdate({
-            status: newStatus,
-            timestamp: block.timestamp,
-            updatedBy: msg.sender,
-            remarks: remarks
-        }));
-
-        emit StatusUpdated(id, newStatus, msg.sender, remarks, block.timestamp);
-    }
-
-    /**
-     * @dev Get current status and basic info of an item
-     */
-    function getItem(uint256 id) external view returns (
-        uint256 itemId,
-        string memory description,
-        address creator,
-        Status currentStatus,
-        uint256 lastUpdated
-    ) {
-        require(items[id].exists, "Item does not exist");
-        Item memory item = items[id];
-
-        return (
-            item.id,
-            item.description,
-            item.creator,
-            item.currentStatus,
-            item.timestamp
-        );
-    }
-
-    /**
-     * @dev Get full status update history of an item
-     */
-    function getStatusHistory(uint256 id) external view returns (StatusUpdate[] memory) {
-        require(items[id].exists, "Item does not exist");
-        return itemStatusHistory[id];
-    }
-}
+        End
+// 
 // 
 End
 // 
